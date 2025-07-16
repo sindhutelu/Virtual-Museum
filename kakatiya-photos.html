@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kakatiya Musical Garden Museum Photos</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            flex-direction: row;
+        }
+        .gallery {
+            width: 80%;
+            max-width: 80vw;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-top: 20px;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .panorama-container {
+            width: 90%;
+            max-width: 800px;
+            height: 500px;
+            max-height: 500px;
+            overflow: hidden;
+            position: relative;
+            margin: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .panorama {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 1px solid #ccc;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .overlay-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.5s ease;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .overlay-image.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .gallery-title {
+            font-family: Arial, sans-serif;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .click-instruction {
+            width: 100%;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-bottom: 20px;
+            color: black;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <h1 class="gallery-title">Kakatiya Musical Garden Museum Photos</h1>
+        <div class="click-instruction">Click on the image to experience the panorama effect</div>
+        <div class="panorama-container" id="panorama1">
+            <img src="https://i.imgur.com/QogbFgD.jpg" class="overlay-image">
+        </div>
+        <div class="panorama-container" id="panorama2">
+            <img src="https://i.imgur.com/3tAZmyD.jpg" class="overlay-image">
+        </div>
+        <div class="panorama-container" id="panorama3">
+            <img src="https://i.imgur.com/ctsSeKR.jpg" class="overlay-image">
+        </div>
+        <div class="panorama-container" id="panorama4">
+            <img src="https://i.imgur.com/owGyc6p.jpg" class="overlay-image">
+        </div>
+        <div class="panorama-container" id="panorama5">
+            <img src="https://i.imgur.com/gWgbpY2.jpg" class="overlay-image">
+        </div>
+        <div class="panorama-container" id="panorama6">
+            <img src="https://i.imgur.com/Up6BChj.jpg" class="overlay-image">
+        </div>
+        <div class="panorama-container" id="panorama7">
+            <img src="https://i.imgur.com/eLrKXOP.jpg" class="overlay-image">
+        </div>
+        <div class="panorama-container" id="panorama8">
+            <img src="https://i.imgur.com/me6X5tf.jpg" class="overlay-image">
+        </div>
+        <div class="panorama-container" id="panorama9">
+            <img src="https://i.imgur.com/QpjRllV.jpg" class="overlay-image">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script>
+        const imageUrls = [
+            'https://i.imgur.com/QogbFgD.jpg',
+            'https://i.imgur.com/3tAZmyD.jpg',
+            'https://i.imgur.com/ctsSeKR.jpg',
+            'https://i.imgur.com/owGyc6p.jpg',
+            'https://i.imgur.com/gWgbpY2.jpg',
+            'https://i.imgur.com/Up6BChj.jpg',
+            'https://i.imgur.com/eLrKXOP.jpg',
+            'https://i.imgur.com/me6X5tf.jpg',
+            'https://i.imgur.com/QpjRllV.jpg'
+        ];
+
+        function initializePanorama(containerId, imageUrl) {
+            pannellum.viewer(containerId, {
+                "type": "equirectangular",
+                "panorama": imageUrl,
+                "autoLoad": true,
+                "showZoomCtrl": true,
+                "compass": true,
+                "mouseZoom": true,
+                "keyboardZoom": true,
+                "showFullscreenCtrl": true,
+                "default": {
+                    "firstScene": "default",
+                    "sceneFadeDuration": 1000
+                },
+                "hotSpots": [],
+                "onerror": function(error) {
+                    console.error('Error loading panorama:', error);
+                    alert('Failed to load panorama. Please check the URL and try again.');
+                },
+                "onload": function() {
+                    const container = document.getElementById(containerId);
+                    const overlayImage = container.querySelector('.overlay-image');
+                    overlayImage.classList.add('hidden');
+                }
+            });
+        }
+
+        function setupPanoramaViewers(imageUrls) {
+            imageUrls.forEach((url, index) => {
+                const container = document.getElementById('panorama' + (index + 1));
+                container.addEventListener('click', () => {
+                    const overlayImage = container.querySelector('.overlay-image');
+                    if (!overlayImage.classList.contains('hidden')) {
+                        overlayImage.classList.add('hidden');
+                        initializePanorama(container.id, url);
+                    }
+                });
+            });
+        }
+
+        window.onload = function() {
+            setupPanoramaViewers(imageUrls);
+        }
+    </script>
+</body>
+</html>

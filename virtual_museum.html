@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Museum</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f5f5f5;
+            background-image: url('https://media.cntraveler.com/photos/5bbfc004c0b2432daa533e1c/16:9/w_1920,c_limit/Meadows-Museum_Dimitirs-Skliris_S3A9314.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            color: white;
+        }
+        .header {
+            width: 80%;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            color: black;
+            margin: 0;
+        }
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+            background-color: transparent;
+        }
+        .search-option, .search-bar, button {
+            padding: 10px;
+            font-size: 1.2em;
+            margin: 0 5px;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            color: black;
+            display: none;
+        }
+        .museum-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .museum-list li {
+            margin: 10px 0;
+        }
+        .museum-list a {
+            font-size: 1.5em;
+            color: #000080;
+            text-decoration: none;
+        }
+        .museum-list a:hover {
+            text-decoration: underline;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #000080;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #0000CD;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Our Virtual Museum</h1>
+        <div class="search-container">
+            <select class="search-option" aria-label="Search Option">
+                <option value="museums">Museums</option>
+                <option value="facts">Facts</option>
+            </select>
+            <input type="text" class="search-bar" placeholder="Search..." aria-label="Search input">
+            <button onclick="handleSearch()" aria-label="Search button">Go</button>
+        </div>
+    </div>
+    <div class="container">
+        <ul class="museum-list">
+            <!-- Museum list items will be dynamically populated here -->
+        </ul>
+        <button class="back-button" onclick="redoSearch()">Back</button>
+    </div>
+
+    <script>
+        function handleSearch() {
+            const searchOption = document.querySelector('.search-option').value;
+            const searchText = document.querySelector('.search-bar').value.toLowerCase();
+            const container = document.querySelector('.container');
+            const museumList = document.querySelector('.museum-list');
+            
+            container.style.display = 'block'; // Show the container when search is performed
+            museumList.innerHTML = ''; // Clear any existing content
+
+            const museums = [
+                { name: 'Birla Science Museum', url: 'birla.html' },
+                { name: 'Salar Jung Museum', url: 'salar-jung.html' },
+                { name: 'Telangana State Museum', url: 'telangana-state.html' },
+                { name: 'Nizam Museum', url: 'nizam.html' },
+                { name: 'Kakatiya Musical Garden', url: 'kakatiya.html' },
+                { name: 'Warangal Museum', url: 'warangal-fort.html' }
+            ];
+
+            const facts = [
+                { name: 'Telangana Facts', url: 'telangana-facts.html' },
+                { name: 'Museum Facts', url: 'museum-facts.html' }
+            ];
+
+            let filteredItems = [];
+            if (searchOption === 'museums') {
+                filteredItems = museums.filter(museum => museum.name.toLowerCase().includes(searchText));
+            } else if (searchOption === 'facts') {
+                filteredItems = facts.filter(fact => fact.name.toLowerCase().includes(searchText));
+            }
+
+            if (filteredItems.length === 0) {
+                const listItem = document.createElement('li');
+                listItem.textContent = 'Not Found';
+                museumList.appendChild(listItem);
+            } else {
+                filteredItems.forEach(item => {
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = item.url;
+                    link.textContent = item.name;
+                    listItem.appendChild(link);
+                    museumList.appendChild(listItem);
+                });
+            }
+        }
+
+        function redoSearch() {
+            const container = document.querySelector('.container');
+            container.style.display = 'none'; // Hide the container
+            document.querySelector('.search-bar').value = ''; // Clear the search bar
+            document.querySelector('.museum-list').innerHTML = ''; // Clear the museum list
+        }
+    </script>
+</body>
+</html>

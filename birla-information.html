@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birla Science Museum Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: url('https://imgur.com/OpX60fg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .box {
+            display: none;
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .box.active {
+            display: block;
+        }
+        .end-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .instruction {
+            font-style: italic;
+            margin-top: 10px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="instruction">Click on each box to view more information.</div>
+        <div id="box1" class="box active">
+            <h1>Birla Science Museum Information</h1>
+            <h2>Location</h2>
+            <p>The museum is situated near Birla Mandir (Birla Temple) in Hyderabad, offering a picturesque view of the city.</p>
+        </div>
+        <div id="box2" class="box">
+            <h2>Exhibits</h2>
+            <p>It features various exhibits covering topics such as physics, chemistry, biology, electronics, and astronomy. There are interactive displays and models that make learning about science engaging and accessible.</p>
+        </div>
+        <div id="box3" class="box">
+            <h2>Planetarium</h2>
+            <p>The museum includes a Birla Planetarium, which hosts shows on astronomy, space exploration, and celestial phenomena. The planetarium is equipped with modern projection technology to simulate the night sky and cosmic events.</p>
+        </div>
+        <div id="box4" class="box">
+            <h2>Other Facilities</h2>
+            <p>Visitors can also explore the Dinosaurium, which showcases replicas of dinosaurs and fossils, adding an element of paleontology to the museum's offerings.</p>
+        </div>
+        <div id="box5" class="box">
+            <h2>Visiting Hours</h2>
+            <p>Typically, the museum is open to visitors from morning to evening, though it's advisable to check the current operating hours before planning your visit.</p>
+        </div>
+        <div id="endBox" class="end-message">
+            <p>The end</p>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.box').forEach((box, index, boxes) => {
+            box.addEventListener('click', () => {
+                if (index < boxes.length - 1) {
+                    boxes[index + 1].classList.add('active');
+                } else {
+                    document.getElementById('endBox').style.display = 'block';
+                }
+                box.style.cursor = 'default';
+            });
+        });
+    </script>
+</body>
+</html>

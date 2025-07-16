@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telangana State Museum Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://imgur.com/OpX60fg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Added to make the background static */
+            color: #333;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .box {
+            display: none;
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .box.active {
+            display: block;
+        }
+        .end-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Click on each box to view more information.</p>
+        <div id="box1" class="box active">
+            <h1>Telangana State Museum</h1>
+            <p><span class="highlight">Overview:</span> The Telangana State Museum, formerly known as the Hyderabad Museum, is located in Hyderabad, India. It is one of the oldest museums in the city and showcases a diverse range of artifacts from the region's rich history and cultural heritage.</p>
+        </div>
+        <div id="box2" class="box">
+            <h2>Location</h2>
+            <p>The museum is situated in Public Gardens, Nampally, Hyderabad, Telangana. It is easily accessible from various parts of the city and is close to other attractions such as the Birla Mandir and the Lumbini Park.</p>
+        </div>
+        <div id="box3" class="box">
+            <h2>History</h2>
+            <p>Established in 1931 by the Nizam of Hyderabad, the museum was initially called the Hyderabad Museum. It was later renamed the State Museum after the formation of Telangana State. The museum's aim is to preserve and display the cultural heritage and history of the region, providing visitors with a deep insight into its past.</p>
+        </div>
+        <div id="box4" class="box">
+            <h2>Collection Highlights</h2>
+            <p>The Telangana State Museum houses an extensive collection of artifacts spanning several centuries. The exhibits include archaeological findings, bronze and metal objects, numismatics, manuscripts and miniature paintings, textiles and fabrics, and arms and armor.</p>
+        </div>
+        <div id="box5" class="box">
+            <h2>Architectural Features</h2>
+            <p>The museum is housed in an elegant building that reflects Indo-Saracenic architecture, including domes, arches, and intricate carvings, contributing to the overall aesthetic appeal of the museum. The building itself is considered a heritage structure and adds to the historical ambiance of the exhibits.</p>
+        </div>
+        <div id="box6" class="box">
+            <h2>Visiting Information</h2>
+            <p>The Telangana State Museum is open to visitors from 10:30 AM to 5:00 PM, Tuesday to Sunday. The museum is closed on Mondays and public holidays. There is an entry fee, with different rates for Indian nationals, foreign tourists, and students. Photography inside the museum may be restricted, so it is advisable to check the rules upon arrival.</p>
+        </div>
+        <div id="box7" class="box">
+            <h2>Significance</h2>
+            <p>The Telangana State Museum plays a crucial role in preserving and promoting the cultural heritage of Telangana. It serves as an educational resource for students, historians, and tourists interested in the region's history. By visiting the museum, one can gain a comprehensive understanding of the rich and diverse heritage of Telangana, from its ancient civilizations to its more recent history. The museum's extensive collection and its historical building offer a unique and enriching experience for all visitors.</p>
+        </div>
+        <div id="endBox" class="end-message">
+            <p>The end</p>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.box').forEach((box, index, boxes) => {
+            box.addEventListener('click', () => {
+                if (index < boxes.length - 1) {
+                    boxes[index + 1].classList.add('active');
+                } else {
+                    document.getElementById('endBox').style.display = 'block';
+                }
+                box.style.cursor = 'default';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salar Jung Museum Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://imgur.com/OpX60fg.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .box {
+            display: none;
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .box.active {
+            display: block;
+        }
+        .end-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .instruction {
+            font-style: italic;
+            margin-top: 10px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="instruction">Click on each box to view more information.</div>
+        <div id="box1" class="box active">
+            <h1>Salar Jung Museum Information</h1>
+            <h2>History and Background</h2>
+            <p>The Salar Jung Museum was established by Mir Yousuf Ali Khan, also known as Salar Jung III, who was the Prime Minister of the seventh Nizam of Hyderabad. The museum was officially inaugurated on 16th December 1951 by the then Prime Minister of India, Jawaharlal Nehru. The museum's collection comprises art and artifacts amassed by Salar Jung III, his father, and his grandfather over a period of 35 years.</p>
+        </div>
+        <div id="box2" class="box">
+            <h2>Collections and Highlights</h2>
+            <p>The museum boasts an extensive collection of sculptures, paintings, carvings, textiles, manuscripts, ceramics, metallic artifacts, carpets, clocks, and furniture from various parts of the world. One of the most notable pieces is the marble statue of "Veiled Rebecca" by Italian sculptor Giovanni Maria Benzoni. The jade collection includes remarkable artifacts such as daggers belonging to Emperor Jehangir and Mughal Emperor Shah Jahan. The museum also features European paintings by renowned artists and Indian art from various states and periods. The Clocks Gallery is particularly popular, showcasing an array of timepieces from around the globe, including a captivating musical clock.</p>
+        </div>
+        <div id="box3" class="box">
+            <h2>Structure and Layout</h2>
+            <p>The Salar Jung Museum is spread across two buildings – the new block and the old block, encompassing 38 galleries in total. Each gallery is thematic, including the Western art gallery, Eastern art gallery, Indian art gallery, and a children's section. Additionally, the museum houses a rich library containing rare manuscripts and books.</p>
+        </div>
+        <div id="box4" class="box">
+            <h2>Visitor Information</h2>
+            <p>Located in Darulshifa, Hyderabad, Telangana, the museum welcomes visitors every day except Fridays and public holidays, from 10:00 AM to 5:00 PM. There is an entry fee, with concessions for children, students, and senior citizens. Extra charges apply for photography and videography.</p>
+        </div>
+        <div id="box5" class="box">
+            <h2>Importance</h2>
+            <p>The Salar Jung Museum holds immense cultural significance, serving as a treasure trove of art and history that represents a wide array of cultures and periods. It is an invaluable educational resource, providing insights into the artistic and cultural heritage of India and other parts of the world. As one of the largest museums globally, it attracts visitors from all over, drawn by its vast and diverse collection.</p>
+        </div>
+        <div id="endBox" class="end-message">
+            <p>The end</p>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.box').forEach((box, index, boxes) => {
+            box.addEventListener('click', () => {
+                if (index < boxes.length - 1) {
+                    boxes[index + 1].classList.add('active');
+                } else {
+                    document.getElementById('endBox').style.display = 'block';
+                }
+                box.style.cursor = 'default';
+            });
+        });
+    </script>
+</body>
+</html>

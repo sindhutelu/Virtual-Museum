@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nizam Museum Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://imgur.com/OpX60fg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Added to make the background static */
+            color: #333;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .box {
+            display: none;
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .box.active {
+            display: block;
+        }
+        .end-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Click on each box to view more information.</p>
+        <div id="box1" class="box active">
+            <h1>Nizam Museum Information</h1>
+            <h2>Location</h2>
+            <p>The museum is situated in Purani Haveli, Pathar Gatti, Hyderabad, Telangana. It is conveniently located near popular landmarks such as Charminar and the Salar Jung Museum.</p>
+        </div>
+        <div id="box2" class="box">
+            <h2>History</h2>
+            <p>Established in 2000, the Nizam Museum was created to showcase the personal effects and treasures of Mir Osman Ali Khan, the last Nizam of Hyderabad. During his reign, he was reputedly the richest man in the world. The museum is housed in Purani Haveli, which was originally the residence of the Nizams and remains a significant part of Hyderabad’s heritage.</p>
+        </div>
+        <div id="box3" class="box">
+            <h2>Collection Highlights</h2>
+            <p>The museum features a wide array of gifts and mementos presented to the Nizam, including a <span class="highlight">gold tiffin box</span> inlaid with diamonds, a <span class="highlight">wooden writing box</span> studded with mother-of-pearl, and <span class="highlight">silver ittardans</span> (perfume containers). Notable items also include a <span class="highlight">1930 Rolls Royce</span>, a manually operated lift, and various vintage cars. Additionally, there are fascinating models of various buildings made entirely of silver. The museum also displays the Nizam’s personal wardrobe, including his garments, shoes, and accessories, along with ceremonial robes and swords. Rare manuscripts, miniature paintings, and other artworks are part of the collection, offering a glimpse into the artistic and cultural heritage of the era.</p>
+        </div>
+        <div id="box4" class="box">
+            <h2>Architectural Features</h2>
+            <p>Purani Haveli, the building housing the museum, is an architectural marvel that showcases the grandeur and elegance typical of Nizam-era structures. Its design elements reflect a European style, evident in its intricate decorations and antique furniture. The museum’s rooms are vast and adorned, reflecting the luxurious lifestyle of the Nizams.</p>
+        </div>
+        <div id="box5" class="box">
+            <h2>Visiting Information</h2>
+            <p>The museum is open from 10:00 AM to 5:00 PM on all days except Fridays. There is an entry fee for visitors, with different rates for Indian nationals and foreign tourists. Guided tours are available and recommended for a deeper understanding of the exhibits. Photography may be restricted in certain areas, so it is advisable to check the rules before taking pictures. The museum is accessible to visitors, but it is always good to check for any specific accessibility requirements in advance.</p>
+        </div>
+        <div id="box6" class="box">
+            <h2>Significance</h2>
+            <p>The Nizam Museum is a treasure trove that offers a glimpse into the opulent lifestyle of one of India's most powerful and wealthy dynasties. It is an essential visit for those interested in history, culture, and the heritage of Hyderabad. By visiting the Nizam Museum, you not only explore artifacts of historical significance but also get a sense of the socio-cultural milieu of Hyderabad under the <span class="italic">Nizam's</span> rule.</p>
+        </div>
+        <div id="endBox" class="end-message">
+            <p>The end</p>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.box').forEach((box, index, boxes) => {
+            box.addEventListener('click', () => {
+                if (index < boxes.length - 1) {
+                    boxes[index + 1].classList.add('active');
+                } else {
+                    document.getElementById('endBox').style.display = 'block';
+                }
+                box.style.cursor = 'default';
+            });
+        });
+    </script>
+</body>
+</html>

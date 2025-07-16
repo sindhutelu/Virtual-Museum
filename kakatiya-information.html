@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kakatiya Musical Garden Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://imgur.com/OpX60fg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Added to make the background static */
+            color: #333;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+        }
+        .box {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: height 0.3s ease-in-out;
+            overflow: hidden;
+            height: 0;
+        }
+        .box.active {
+            height: auto;
+            padding: 20px;
+        }
+        .end-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+        .instruction {
+            font-style: italic;
+            margin-top: 10px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kakatiya Musical Garden Information</h1>
+        <div id="box1" class="box active">
+            <h2>Overview</h2>
+            <p><span class="highlight">Overview:</span> Located in Warangal, Telangana, near the iconic Warangal Fort, the Kakatiya Musical Garden is renowned for its enchanting musical fountain displays and serene landscaped gardens. Visitors can enjoy choreographed water shows synchronized with music and vibrant lighting effects, creating a mesmerizing ambiance especially during evening hours.</p>
+            <div class="instruction">Click on each box to view more information.</div>
+        </div>
+        <div id="box2" class="box">
+            <h2>Location</h2>
+            <p>The Kakatiya Musical Garden is situated in Warangal, Telangana, near the iconic Warangal Fort, approximately 150 kilometers northeast of Hyderabad. Its strategic location makes it accessible to tourists visiting the fort and other historical sites in the area.</p>
+            <div class="instruction">Click on each box to view more information.</div>
+        </div>
+        <div id="box3" class="box">
+            <h2>Features and Attractions</h2>
+            <p>The key features of the Kakatiya Musical Garden include:</p>
+            <ul>
+                <li><span class="highlight">Musical Fountain Displays:</span> Central attraction featuring choreographed water displays synchronized with music and lighting.</li>
+                <li><span class="highlight">Landscaped Gardens:</span> Well-maintained greenery, flower beds, and scenic pathways for leisurely walks.</li>
+                <li><span class="highlight">Lighting Effects:</span> Enhances ambiance during evening hours with colorful lighting.</li>
+                <li><span class="highlight">Recreational Facilities:</span> Includes children's play areas and seating for visitors.</li>
+            </ul>
+            <div class="instruction">Click on each box to view more information.</div>
+        </div>
+        <div id="box4" class="box">
+            <h2>Visiting Information</h2>
+            <p>The Kakatiya Musical Garden typically operates during daylight hours, with specific timings subject to seasonal variations. Visitors are required to pay a nominal entry fee, which varies for adults, children, and foreign tourists. The garden ensures accessibility with wheelchair-friendly pathways and facilities.</p>
+            <div class="instruction">Click on each box to view more information.</div>
+        </div>
+        <div id="box5" class="box">
+            <h2>Significance</h2>
+            <p>The Kakatiya Musical Garden is a popular destination in Warangal, blending natural beauty with artistic water displays. It offers a cultural and recreational experience for visitors of all ages, showcasing the historical and natural heritage of Telangana.</p>
+            <div class="instruction">Click on each box to view more information.</div>
+        </div>
+        <div id="endBox" class="end-message">
+            <p>The end</p>
+        </div>
+    </div>
+    <script>
+        const boxes = document.querySelectorAll('.box');
+
+        boxes.forEach((box, index) => {
+            box.addEventListener('click', () => {
+                if (!box.classList.contains('active')) {
+                    // Remove 'active' class from all boxes
+                    boxes.forEach((b) => {
+                        b.classList.remove('active');
+                    });
+
+                    // Add 'active' class to the clicked box and all preceding boxes
+                    for (let i = 0; i <= index; i++) {
+                        boxes[i].classList.add('active');
+                    }
+                } else {
+                    // Toggle 'active' class for the clicked box
+                    box.classList.remove('active');
+                }
+
+                // Show/hide 'endBox' based on whether the last box is active
+                document.getElementById('endBox').style.display = boxes[boxes.length - 1].classList.contains('active') ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

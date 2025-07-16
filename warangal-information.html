@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warangal Museum Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            background-image: url('https://i.imgur.com/OpX60fg.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.8); /* Adding opacity for better readability */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .box {
+            display: none;
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .box.active {
+            display: block;
+        }
+        .end-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Warangal Museum Information</h1>
+        <p>Click on each box to view more information.</p>
+        <div id="box1" class="box active">
+            <h2>Overview</h2>
+            <p><span class="highlight">Overview:</span> The Warangal Museum, officially known as the Kakatiya Heritage Trust Museum, is located in Warangal, Telangana. This museum showcases artifacts and exhibits from the rich cultural and historical heritage of the Kakatiya dynasty and the region of Warangal.</p>
+        </div>
+        <div id="box2" class="box">
+            <h2>Location</h2>
+            <p>The museum is situated in the historic city of Warangal, which is approximately 150 kilometers northeast of Hyderabad, Telangana. It is located near the iconic Warangal Fort, making it accessible to tourists visiting the fort and other historical sites in the area.</p>
+        </div>
+        <div id="box3" class="box">
+            <h2>History</h2>
+            <p>Warangal, once the capital of the Kakatiya dynasty, is a city steeped in history. The museum was established to preserve and display the artifacts and relics from the Kakatiya period, which flourished between the 12th and 14th centuries. The Kakatiya dynasty is known for its contributions to architecture, art, and culture in the Deccan region.</p>
+        </div>
+        <div id="box4" class="box">
+            <h2>Collection Highlights</h2>
+            <p>The Warangal Museum houses a diverse collection of artifacts that reflect the rich heritage of the Kakatiya dynasty and the broader history of the region. Some of the notable exhibits include:</p>
+            <ul>
+                <li><span class="highlight">Sculptures and Statues:</span> The museum features a significant collection of stone sculptures and statues from the Kakatiya period. These include depictions of deities, mythical creatures, and important historical figures.</li>
+                <li><span class="highlight">Inscriptions and Manuscripts:</span> Several stone inscriptions and ancient manuscripts are on display, providing insights into the language, literature, and administrative practices of the Kakatiya dynasty.</li>
+                <li><span class="highlight">Coins and Currency:</span> The museum has a collection of coins from different periods, including those from the Kakatiya era, which illustrate the economic history and trade practices of the time.</li>
+                <li><span class="highlight">Terracotta Artifacts:</span> Various terracotta artifacts, including pottery and decorative items, showcase the artistic skills and daily life of the people during the Kakatiya period.</li>
+                <li><span class="highlight">Weapons and Armor:</span> Exhibits include swords, shields, and other weapons used by the Kakatiya warriors, reflecting the martial culture and military prowess of the dynasty.</li>
+            </ul>
+        </div>
+        <div id="box5" class="box">
+            <h2>Architectural Features</h2>
+            <p>The museum building itself is designed to reflect the architectural style of the Kakatiya period. It incorporates elements such as intricate carvings, stone pillars, and traditional motifs that are characteristic of the Kakatiya architecture. The design of the museum enhances the historical ambiance and provides an immersive experience for visitors.</p>
+        </div>
+        <div id="box6" class="box">
+            <h2>Visiting Information</h2>
+            <p>The Warangal Museum is open to visitors from 10:00 AM to 5:00 PM, Tuesday to Sunday. It is closed on Mondays and public holidays. There is an entry fee for visitors, with different rates for Indian nationals and foreign tourists. Guided tours may be available, offering detailed insights into the exhibits and the history of the region.</p>
+        </div>
+        <div id="box7" class="box">
+            <h2>Significance</h2>
+            <p>The Warangal Museum plays a vital role in preserving the cultural and historical heritage of the Kakatiya dynasty and the Warangal region. It serves as an educational resource for historians, students, and tourists interested in the rich past of Telangana. By visiting the museum, one can gain a deeper understanding of the Kakatiya dynasty's contributions to architecture, art, and culture, as well as the broader historical context of the region. The museum's collection and its architectural setting provide a valuable and enriching experience for all visitors, highlighting the legacy of one of South India's most significant historical periods.</p>
+        </div>
+        <div id="endBox" class="end-message">
+            <p>The end</p>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.box').forEach((box, index, boxes) => {
+            box.addEventListener('click', () => {
+                if (index < boxes.length - 1) {
+                    boxes[index + 1].classList.add('active');
+                } else {
+                    document.getElementById('endBox').style.display = 'block';
+                }
+                box.style.cursor = 'default';
+            });
+        });
+    </script>
+</body>
+</html>

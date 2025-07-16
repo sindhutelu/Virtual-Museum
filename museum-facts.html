@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Facts about Museums</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://imgur.com/mcaDlKM.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            color: white;
+        }
+        .header-box {
+            background: white; /* Opaque white background */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            color: black;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .fact-box {
+            background: white; /* Opaque white background */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            margin: 10px;
+            flex: 1 1 calc(33.33% + 40px); /* Adjusted flex basis */
+            box-sizing: border-box;
+            min-width: 120px;
+            min-height: 120px;
+            color: black;
+            position: relative;
+            z-index: 1;
+            display: none;
+            text-align: justify;
+        }
+        .fact-box.current {
+            display: block;
+        }
+        .fact-box h2 {
+            margin-top: 0;
+            font-size: 1em;
+        }
+        .fact-box p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+        @media (max-width: 800px) {
+            .fact-box {
+                flex: 1 1 calc(50% + 40px); /* Adjusted flex basis for smaller screens */
+            }
+        }
+        @media (max-width: 500px) {
+            .fact-box {
+                flex: 1 1 calc(100% - 20px); /* Adjusted flex basis for mobile screens */
+            }
+        }
+        .navigation {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .nav-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-box">
+        <h1>Historical Facts about Museums</h1>
+    </div>
+    <div class="container">
+        <div class="fact-box current">
+            <h2>Salar Jung Museum</h2>
+            <p>One of the world's largest one-man collections created by Mir Yousuf Ali Khan, Salar Jung III. Famous for the "Veiled Rebecca" statue by Italian sculptor Giovanni Benzoni and an extensive collection of clocks, including the British Bracket Clock. Architecturally, the museum is designed in the Indo-Saracenic style, combining elements of Indian and Mughal architecture with Gothic arches and domes.</p>
+        </div>
+        <div class="fact-box">
+            <h2>Telangana State Museum</h2>
+            <p>Houses artifacts from the Nizam era and Kakatiya dynasty, showcasing the region's rich cultural heritage. Highlights include rare Egyptian mummies and a significant collection of Ajanta and Ellora sculptures, reflecting ancient Indian artistry. Originally built in 1931 by the Nizam of Hyderabad, the museum is designed in the Indo-Persian architectural style, featuring elegant arches and minarets.</p>
+        </div>
+        <div class="fact-box">
+            <h2>Nizam Museum</h2>
+            <p>Dedicated to the artifacts of Osman Ali Khan, Asaf Jah VII, the last Nizam of Hyderabad. Features a golden throne adorned with jewels, a diamond-inlaid gold tiffin box, and the world's largest walk-in wardrobe, displaying the Nizam's extensive collection of clothing and accessories.</p>
+        </div>
+        <div class="fact-box">
+            <h2>Warangal Museum</h2>
+            <p>The Warangal Museum preserves artifacts from the Kakatiya dynasty, showcasing the cultural and historical heritage of the region. The museum houses significant items like sculptures, inscriptions, and temple relics dating back to the 12th to 14th centuries.</p>
+        </div>
+        <div class="fact-box">
+            <h2>Birla Science Museum</h2>
+            <p>Established in 1985 by the Birla Group, the Birla Science Museum in Hyderabad features a cutting-edge planetarium and interactive exhibits on various scientific disciplines. It serves as a beacon of scientific education, captivating visitors with its state-of-the-art displays and fostering a deep appreciation for science and astronomy. .</p>
+        </div>
+        <div class="fact-box">
+            <h2>Kakatiya Musical Garden Museum, Nizamabad</h2>
+            <p>The Kakatiya Museum specializes in artifacts from the Kakatiya period, including stone sculptures, bronzes, and coins. It plays a key role in preserving and educating about the Kakatiya dynasty's contributions to South Indian art and architecture.</p>
+        </div>
+    </div>
+    <div class="navigation">
+        <button class="nav-button" id="prevBtn">Previous</button>
+        <button class="nav-button" id="nextBtn">Next</button>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const factBoxes = document.querySelectorAll('.fact-box');
+
+        function showFact(index) {
+            factBoxes.forEach((box) => {
+                box.classList.remove('current');
+            });
+            factBoxes[index].classList.add('current');
+        }
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + factBoxes.length) % factBoxes.length;
+            showFact(currentIndex);
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % factBoxes.length;
+            showFact(currentIndex);
+        });
+
+        showFact(currentIndex);
+    </script>
+</body>
+</html>

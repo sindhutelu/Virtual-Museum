@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Facts</h1>
+    <ul>
+        <li onclick="showContent('telangana')">Telangana Facts</li>
+        <li onclick="showContent('museum')">Museum Facts</li>
+    </ul>
+    <div id="telangana" class="hidden">
+        <h2>Telangana Facts</h2>
+        <ul>
+            <li>Telangana is the 29th state of India, formed on June 2, 2014.</li>
+            <li>It is known for its rich history, culture, and heritage.</li>
+            <li>The capital city is Hyderabad, which is a major IT hub in India.</li>
+        </ul>
+    </div>
+    <div id="museum" class="hidden">
+        <h2>Museum Facts</h2>
+        <ul>
+            <li>Telangana has several famous museums, including the Salar Jung Museum in Hyderabad.</li>
+            <li>The Nizam Museum showcases artifacts from the Nizam era.</li>
+            <li>Warangal Fort Museum houses artifacts from the Kakatiya dynasty.</li>
+        </ul>
+    </div>
+    <script>
+        function showContent(id) {
+            var contents = document.querySelectorAll('.hidden');
+            contents.forEach(function(content) {
+                content.style.display = 'none';
+            });
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+</body>
+</html>

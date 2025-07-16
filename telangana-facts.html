@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telangana Facts</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: url('https://popai-file.s3.ap-southeast-1.amazonaws.com/dalle3/fc117eef-96bc-4b69-bee0-564c6ffa5737/1d0bf232-b2a3-400c-a94f-88e06553b079/chatImaged7cfa623229744b08dc9febbabcd580d') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .fact-container {
+            max-width: 800px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* semi-transparent white background */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #000;
+        }
+        .sentence-box {
+            margin-bottom: 10px; /* Adjusted margin */
+            padding: 10px; /* Reduced padding */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            width: 100%; /* Full width */
+            text-align: left; /* Left align text */
+            transition: all 0.3s ease;
+            font-size: 0.9em; /* Decreased font size */
+            max-width: 100%; /* Limit maximum width */
+            white-space: normal; /* Allow text wrapping */
+            overflow: hidden; /* Hide overflow */
+        }
+        .sentence-box.active {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="fact-container">
+        <h1>Telangana Facts</h1>
+        <div id="sentence1" class="sentence-box active" title="Telangana is one of the 29 states in India, located in the southern part of the country.">Telangana is one of the 29 states in India, located in the southern part of the country.</div>
+        <div id="sentence2" class="sentence-box" title="Hyderabad, the capital city of Telangana, is known as the 'City of Pearls' and is a major IT hub.">Hyderabad, the capital city of Telangana, is known as the 'City of Pearls' and is a major IT hub.</div>
+        <div id="sentence3" class="sentence-box" title="The state has a rich cultural heritage with classical dance forms like Perini Shivatandavam and festivals like Bonalu.">The state has a rich cultural heritage with classical dance forms like Perini Shivatandavam and festivals like Bonalu.</div>
+        <div id="sentence4" class="sentence-box" title="Telugu is the official language, and the state celebrates its literary heritage with events like the Telangana Sahitya Sabha.">Telugu is the official language, and the state celebrates its literary heritage with events like the Telangana Sahitya Sabha.</div>
+        <div id="sentence5" class="sentence-box" title="It boasts scenic landscapes with attractions such as the Golconda Fort, Warangal Fort, Nagarjuna Sagar Dam, and Pakhal Lake.">It boasts scenic landscapes with attractions such as the Golconda Fort, Warangal Fort, Nagarjuna Sagar Dam, and Pakhal Lake.</div>
+        <div id="sentence6" class="sentence-box" title="The state is known for architectural marvels like the Ramappa Temple, a UNESCO World Heritage site.">The state is known for architectural marvels like the Ramappa Temple, a UNESCO World Heritage site.</div>
+        <div id="sentence7" class="sentence-box" title="Telangana offers a unique culinary experience with dishes like Hyderabadi Biryani, Haleem, and Pesarattu.">Telangana offers a unique culinary experience with dishes like Hyderabadi Biryani, Haleem, and Pesarattu.</div>
+        <div id="sentence8" class="sentence-box" title="It is a leader in technology and innovation with initiatives like T-Hub fostering entrepreneurship.">It is a leader in technology and innovation with initiatives like T-Hub fostering entrepreneurship.</div>
+        <div id="sentence9" class="sentence-box" title="Telangana has rich biodiversity with national parks like Kasu Brahmananda Reddy National Park and Mahavir Harina Vanasthali National Park.">Telangana has rich biodiversity with national parks like Kasu Brahmananda Reddy National Park and Mahavir Harina Vanasthali National Park.</div>
+        <div id="sentence10" class="sentence-box" title="The state celebrates various festivals with great enthusiasm, including Bathukamma and Sankranti.">The state celebrates various festivals with great enthusiasm, including Bathukamma and Sankranti.</div>
+    </div>
+
+    <script>
+        const sentenceBoxes = document.querySelectorAll('.sentence-box');
+        
+        sentenceBoxes.forEach((box, index) => {
+            box.addEventListener('click', () => {
+                sentenceBoxes.forEach((box) => {
+                    box.classList.remove('active');
+                });
+                box.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
